@@ -1,10 +1,12 @@
 package com.example.username.clase01;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +27,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int numero = Integer.parseInt(txtNumero.getText().toString()) + 1;
-                txtNumero.setText(String.valueOf(numero));
+                String resultado = String.valueOf(numero);
+                txtNumero.setText(resultado);
+                mostrarResultado(resultado);
             }
         });
 
@@ -33,8 +37,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int numero = Integer.parseInt(txtNumero.getText().toString()) - 1;
-                txtNumero.setText(String.valueOf(numero));
+                String resultado = String.valueOf(numero);
+                txtNumero.setText(resultado);
+                mostrarResultado(resultado);
             }
         });
+    }
+
+    private void mostrarResultado(String resultado) {
+        Toast.makeText(this, "El resltado es: " + resultado, Toast.LENGTH_SHORT).show();
     }
 }
