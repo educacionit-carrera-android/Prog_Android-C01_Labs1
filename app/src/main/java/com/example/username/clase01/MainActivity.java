@@ -10,6 +10,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView txtNumero;
     private Button btnSumar;
+    private Button btnRestar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,11 +19,20 @@ public class MainActivity extends AppCompatActivity {
 
         txtNumero = findViewById(R.id.txtNumero);
         btnSumar = findViewById(R.id.btnSumar);
+        btnRestar = findViewById(R.id.btnRestar);
 
         btnSumar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int numero = Integer.parseInt(txtNumero.getText().toString()) + 1;
+                txtNumero.setText(String.valueOf(numero));
+            }
+        });
+
+        btnRestar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int numero = Integer.parseInt(txtNumero.getText().toString()) - 1;
                 txtNumero.setText(String.valueOf(numero));
             }
         });
